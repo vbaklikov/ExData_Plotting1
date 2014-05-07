@@ -5,8 +5,9 @@ myData <- read.csv2.sql("household_power_consumption.txt", sql)
 
 myData$datetime <- as.POSIXct(paste(myData$Date, myData$Time),format="%d/%m/%Y %H:%M:%S")
 
+png(filename="plot2.png",width=480,height=480)
 par(mar = c(5,5,2,2))
 plot(x=myData$datetime, y=myData$Global_active_power, pch=".", type="o", xlab="", ylab="Global Active Power(kilowatts)")
 
-dev.copy(png, file = "plot2.png")
+#dev.copy(png, file = "plot2.png")
 dev.off()
